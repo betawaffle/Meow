@@ -4,51 +4,40 @@
     <title>jQuery Meow Demo</title>
     <link rel="stylesheet" href="jquery.meow.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" type="text/css" media="screen">
-    <style>
-      body {
-        font-family: Helvetica, Arial, sans-serif;
-      }
-    </style>
     <script src="jquery-1.6.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="jquery.meow.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
     <script>
       $(document).ready(function() {
-        $(this).meow({
+        $(this).meow($('#onready'), {
           trigger: 'ready',
-          message: $('#onready'),
           icon: 'nyan-cat.gif'
         });
-        $('#button').meow({
+        $('#button').meow($('#onclick'), {
           trigger: 'click',
-          message: $('#onclick'),
           icon: 'https://secure.gravatar.com/avatar/c5e99d5ecfaab30b92d9a7cdb34e0e33?s=48'
         });
-        $('#onchange').meow({
+        $('#onchange').meow($('#onchange'), {
           title: 'I have a defined title!',
           trigger: 'change',
-          message: $('#onchange'),
           icon: 'nyan-cat.gif'
         });
-        $('#selectonchange').meow({
+        $('#selectonchange').meow($('#selectonchange'), {
           trigger: 'change',
-          message: $('#selectonchange'),
           icon: 'nyan-cat.gif'
         });
         $('#unbound').click(function () {
-          $(document).meow({
-            message: 'I\'m an unbound meow!',
+          $(document).meow("I'm an unbound meow!", {
             icon: 'nyan-cat.gif'
           });
         });
       });
     </script>
-  </head>
 
-  <body>
     <div id="meows"></div>
 
     <h1>jQuery Meow Demo</h1>
-
     <p>jQuery Meow is a Growl work-alike for notifications in your web app.
 
     <h2>Ready Demo</h2>
@@ -73,6 +62,7 @@
         <option value="nyan-3">Nyan 3</option>
       </select>
     </p>
+
     <h2>Unbound Demo</h2>
     <p>This one isn't bound to an event. We just call <code>$.meow()</code> without a trigger.</p>
     <p><button id="unbound">Click me!</button></p>
